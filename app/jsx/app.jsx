@@ -71,8 +71,7 @@ var App = React.createClass({
                             return <div className={"col-lg-3 col-md-6 item"} key={i}>
                                 <div className={"background"} style={itemStyle}></div>
                                 <div className={"card-content"}>
-                                    <div className={"image"} style={itemStyle}>
-                                    </div>
+                                  <div className={"image"} style={itemStyle}></div>
                                   <h4>{item.title}</h4>
                                   <p>{item.description}</p>
                                 </div>
