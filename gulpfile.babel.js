@@ -42,6 +42,15 @@ const testLintOptions = {
 gulp.task('lint', lint('app/scripts/**/*.js'));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
+
+gulp.task('jsx', () => {
+    return gulp.src('app/jsx/*.jsx')
+        .pipe(babel({
+            presets: ['es2015','react']
+        }))
+        .pipe(gulp.dest('dist/scripts'));
+});
+
 gulp.task('html', ['styles'], () => {
   const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
@@ -54,6 +63,7 @@ gulp.task('html', ['styles'], () => {
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
     .pipe(gulp.dest('dist'));
 });
+
 
 gulp.task('images', () => {
   return gulp.src('app/images/**/*')
