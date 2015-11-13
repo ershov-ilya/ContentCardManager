@@ -67,13 +67,11 @@ var App = React.createClass({
                         this.state.items.map(function(item, i) {
                             var itemStyle={
                                 backgroundImage: 'url(' + item.img + ')',
-                                height: '100%'
                             };
                             return <div className={"col-lg-3 col-md-6 item"} key={i}>
                                 <div className={"background"} style={itemStyle}></div>
                                 <div className={"card-content"}>
-                                    <div className={"image"}>
-                                      <img className={"preview"} src={item.img} />
+                                    <div className={"image"} style={itemStyle}>
                                     </div>
                                   <h4>{item.title}</h4>
                                   <p>{item.description}</p>

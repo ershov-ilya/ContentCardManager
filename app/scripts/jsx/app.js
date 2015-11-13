@@ -72,8 +72,7 @@ var App = React.createClass({
                 { id: 'List', className: "row marketing" },
                 this.state.items.map(function (item, i) {
                     var itemStyle = {
-                        backgroundImage: 'url(' + item.img + ')',
-                        height: '100%'
+                        backgroundImage: 'url(' + item.img + ')'
                     };
                     return React.createElement(
                         'div',
@@ -82,11 +81,7 @@ var App = React.createClass({
                         React.createElement(
                             'div',
                             { className: "card-content" },
-                            React.createElement(
-                                'div',
-                                { className: "image" },
-                                React.createElement('img', { className: "preview", src: item.img })
-                            ),
+                            React.createElement('div', { className: "image", style: itemStyle }),
                             React.createElement(
                                 'h4',
                                 null,
