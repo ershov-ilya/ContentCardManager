@@ -63,7 +63,7 @@ var App = React.createClass({
     },
 
     render: function render() {
-        var $this = this;
+        var $item = this;
         return React.createElement(
             'div',
             null,
@@ -82,7 +82,11 @@ var App = React.createClass({
                         React.createElement(
                             'div',
                             { className: "card-content" },
-                            React.createElement('img', { className: "img-responsive icon", src: item.img }),
+                            React.createElement(
+                                'div',
+                                { className: "image" },
+                                React.createElement('img', { className: "preview", src: item.img })
+                            ),
                             React.createElement(
                                 'h4',
                                 null,
@@ -94,24 +98,21 @@ var App = React.createClass({
                                 item.description
                             )
                         ),
+                        React.createElement('div', { className: "overlay" }),
                         React.createElement(
-                            'div',
-                            { className: "overlay" },
-                            React.createElement(
-                                'button',
-                                { onClick: $this.Open, className: "btn btn-default" },
-                                React.createElement('span', { className: "glyphicon glyphicon-folder-open", 'aria-hidden': 'true' })
-                            ),
-                            React.createElement(
-                                'button',
-                                { onClick: $this.Print, className: "btn btn-default" },
-                                React.createElement('span', { className: "glyphicon glyphicon-print", 'aria-hidden': 'true' })
-                            ),
-                            React.createElement(
-                                'button',
-                                { onClick: $this.Delete, className: "btn btn-default" },
-                                React.createElement('span', { className: "glyphicon glyphicon-remove-circle", 'aria-hidden': 'true' })
-                            )
+                            'a',
+                            { onClick: $item.Open, className: "btn btn-default btn-open" },
+                            React.createElement('span', { className: "glyphicon glyphicon-folder-open", 'aria-hidden': 'true' })
+                        ),
+                        React.createElement(
+                            'a',
+                            { onClick: $item.Print, className: "btn btn-default btn-print" },
+                            React.createElement('span', { className: "glyphicon glyphicon-print", 'aria-hidden': 'true' })
+                        ),
+                        React.createElement(
+                            'a',
+                            { onClick: $item.Delete, className: "btn btn-danger btn-delete" },
+                            React.createElement('span', { className: "glyphicon glyphicon-remove-circle", 'aria-hidden': 'true' })
                         )
                     );
                 })

@@ -59,7 +59,7 @@ var App = React.createClass({
     },
 
     render: function() {
-        var $this=this;
+        var $item=this;
         return (
             <div>
                 <ul id="List" className={"row marketing"}>
@@ -72,15 +72,16 @@ var App = React.createClass({
                             return <div className={"col-lg-3 col-md-6 item"} key={i}>
                                 <div className={"background"} style={itemStyle}></div>
                                 <div className={"card-content"}>
-                                  <img className={"img-responsive icon"} src={item.img} />
+                                    <div className={"image"}>
+                                      <img className={"preview"} src={item.img} />
+                                    </div>
                                   <h4>{item.title}</h4>
                                   <p>{item.description}</p>
                                 </div>
-                                <div className={"overlay"}>
-                                <button onClick={$this.Open} className={"btn btn-default"}><span className={"glyphicon glyphicon-folder-open"} aria-hidden="true"></span></button>
-                                <button onClick={$this.Print} className={"btn btn-default"}><span className={"glyphicon glyphicon-print"} aria-hidden="true"></span></button>
-                                <button onClick={$this.Delete} className={"btn btn-default"}><span className={"glyphicon glyphicon-remove-circle"} aria-hidden="true"></span></button>
-                                </div>
+                                <div className={"overlay"}></div>
+                                <a onClick={$item.Open} className={"btn btn-default btn-open"}><span className={"glyphicon glyphicon-folder-open"} aria-hidden="true"></span></a>
+                                <a onClick={$item.Print} className={"btn btn-default btn-print"}><span className={"glyphicon glyphicon-print"} aria-hidden="true"></span></a>
+                                <a onClick={$item.Delete} className={"btn btn-danger btn-delete"}><span className={"glyphicon glyphicon-remove-circle"} aria-hidden="true"></span></a>
                           </div>
                         })
                     }

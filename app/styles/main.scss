@@ -99,18 +99,35 @@ body {
 #List .item{
   position: relative;
   min-height:400px;
+  height:400px;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+  .image{
+    overflow: hidden;
+    max-width: 100%;
+    text-align: center;
+    img{
+      display: inline;
+      height: 180px;
+    }
+  }
 
   .background{
     min-height: 400px;
-    background: url('') 50% 50% no-repeat;
+    background: url('') 50% 100% no-repeat;
     background-size: cover;
-    opacity: 0.5;
+    opacity: 0.2;
   }
 
   .card-content{
     position: relative;
     margin-top:-400px;
     z-index: 100;
+    padding: 20px;
+    max-height: 400px;
+    height: 400px;
+    overflow: hidden;
   }
 
   .overlay{
@@ -127,5 +144,26 @@ body {
     display: block;
     opacity: 0.5;
   }
-}
+
+  .btn{
+    display: none;
+    position: absolute;
+    top:10px;
+  }
+
+  &:hover .btn{
+    display: block;
+    z-index: 201;
+  }
+
+  .btn-open{
+    left:20px;
+  }
+  .btn-print{
+    right:70px;
+  }
+  .btn-delete{
+    right:20px;
+  }
+} // #List .item
 
