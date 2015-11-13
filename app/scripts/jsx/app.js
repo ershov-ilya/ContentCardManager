@@ -3,10 +3,10 @@
 var App = React.createClass({
     displayName: 'App',
 
-    //    $this:null,
     componentWillMount: function componentWillMount() {
         //        $this=this;
     },
+
     statics: {
         get: function get() {
             return $this.state.userInput;
@@ -44,7 +44,26 @@ var App = React.createClass({
         }).bind(this));
     },
 
+    Open: function Open(event) {
+        event.preventDefault();
+        alert('Open done!');
+        return false;
+    },
+
+    Delete: function Delete(event) {
+        event.preventDefault();
+        alert('Delete done!');
+        return false;
+    },
+
+    Print: function Print(event) {
+        event.preventDefault();
+        alert('Print done!');
+        return false;
+    },
+
     render: function render() {
+        var $this = this;
         return React.createElement(
             'div',
             null,
@@ -52,27 +71,46 @@ var App = React.createClass({
                 'ul',
                 { id: 'List', className: "row marketing" },
                 this.state.items.map(function (item, i) {
+                    var itemStyle = {
+                        backgroundImage: 'url(' + item.img + ')',
+                        height: '100%'
+                    };
                     return React.createElement(
                         'div',
-                        { className: "col-lg-4 item", key: i },
+                        { className: "col-lg-3 col-md-6 item", key: i },
+                        React.createElement('div', { className: "background", style: itemStyle }),
                         React.createElement(
-                            'h4',
-                            null,
-                            item.title
-                        ),
-                        React.createElement('img', { className: "img-responsive", src: item.img }),
-                        React.createElement(
-                            'p',
-                            null,
-                            item.description
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
+                            'div',
+                            { className: "card-content" },
+                            React.createElement('img', { className: "img-responsive icon", src: item.img }),
                             React.createElement(
-                                'a',
-                                { className: "btn btn-primary", href: item.url, target: '_blank', role: 'button' },
-                                'View details »'
+                                'h4',
+                                null,
+                                item.title
+                            ),
+                            React.createElement(
+                                'p',
+                                null,
+                                item.description
+                            )
+                        ),
+                        React.createElement(
+                            'div',
+                            { className: "overlay" },
+                            React.createElement(
+                                'button',
+                                { onClick: $this.Open, className: "btn btn-default" },
+                                React.createElement('span', { className: "glyphicon glyphicon-folder-open", 'aria-hidden': 'true' })
+                            ),
+                            React.createElement(
+                                'button',
+                                { onClick: $this.Print, className: "btn btn-default" },
+                                React.createElement('span', { className: "glyphicon glyphicon-print", 'aria-hidden': 'true' })
+                            ),
+                            React.createElement(
+                                'button',
+                                { onClick: $this.Delete, className: "btn btn-default" },
+                                React.createElement('span', { className: "glyphicon glyphicon-remove-circle", 'aria-hidden': 'true' })
                             )
                         )
                     );
@@ -94,6 +132,10 @@ var App = React.createClass({
         );
     }
 });
+
+/*
+    <a className={"btn btn-primary btn-block"} href={item.url} target="_blank" role="button">View details »</a>
+*/
 
 // Mounting
 if (typeof App != 'undefined') ReactDOM.render(React.createElement(App, { source: 'json/first.json' }), document.getElementById('App'));

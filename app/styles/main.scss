@@ -92,4 +92,40 @@ body {
   }
 }
 
-@import "primary.scss";
+/*
+    Custom styles
+*/
+
+#List .item{
+  position: relative;
+  min-height:400px;
+
+  .background{
+    min-height: 400px;
+    background: url('') 50% 50% no-repeat;
+    background-size: cover;
+    opacity: 0.5;
+  }
+
+  .card-content{
+    position: relative;
+    margin-top:-400px;
+    z-index: 100;
+  }
+
+  .overlay{
+    position: relative;
+    display: none;
+    background-color: #ccc;
+    min-height: 400px;
+    margin-top:-400px;
+    opacity: 0.5;
+    z-index: 200;
+  }
+
+  &:hover .overlay{
+    display: block;
+    opacity: 0.5;
+  }
+}
+
