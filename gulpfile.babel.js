@@ -174,7 +174,15 @@ gulp.task('bjsx', ['jsx'],() => {
         .pipe(gulp.dest('dist/scripts/jsx'));
 });
 
-gulp.task('build', ['bjsx', 'html', 'images', 'fonts', 'lint', 'extras'], () => {
+gulp.task('js', () => {
+    // transport jsx
+    gulp.src('app/scripts/**/*.*')
+        .pipe(gulp.dest('dist/scripts'));
+    gulp.src('app/json/*.*')
+        .pipe(gulp.dest('dist/json'));
+});
+
+gulp.task('build', ['bjsx', 'html', 'images', 'fonts', 'lint', 'extras', 'js'], () => {
   return gulp.src('dist/**/*')
       .pipe($.size({title: 'build', gzip: true}));
 });
