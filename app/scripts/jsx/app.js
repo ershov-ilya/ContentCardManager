@@ -34,6 +34,7 @@ var App = React.createClass({
     },
 
     LoadMore: function LoadMore() {
+        // Must be replaced with real API with parameters passing
         $.get('json/second.json', (function (response) {
             if (this.isMounted()) {
                 this.setState({
@@ -53,7 +54,7 @@ var App = React.createClass({
                 this.state.items.map(function (item, i) {
                     return React.createElement(
                         'div',
-                        { className: "col-lg-4", key: i },
+                        { className: "col-lg-4 item", key: i },
                         React.createElement(
                             'h4',
                             null,
@@ -70,7 +71,7 @@ var App = React.createClass({
                             null,
                             React.createElement(
                                 'a',
-                                { className: "btn btn-primary", href: '#', role: 'button' },
+                                { className: "btn btn-primary", href: item.url, target: '_blank', role: 'button' },
                                 'View details »'
                             )
                         )

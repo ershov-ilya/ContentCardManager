@@ -30,6 +30,7 @@ var App = React.createClass({
     },
 
     LoadMore: function(){
+        // Must be replaced with real API with parameters passing
         $.get('json/second.json', function(response) {
             if (this.isMounted()) {
                 this.setState({
@@ -45,11 +46,11 @@ var App = React.createClass({
                 <ul id="List" className={"row marketing"}>
                     {
                         this.state.items.map(function(item, i) {
-                            return <div className={"col-lg-4"} key={i}>
+                            return <div className={"col-lg-4 item"} key={i}>
                                           <h4>{item.title}</h4>
                                           <img className={"img-responsive"} src={item.img} />
                                           <p>{item.description}</p>
-                                          <p><a className={"btn btn-primary"} href="#" role="button">View details »</a></p>
+                                          <p><a className={"btn btn-primary"} href={item.url} target="_blank" role="button">View details »</a></p>
                                       </div>
                         })
                     }
