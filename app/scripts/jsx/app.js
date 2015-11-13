@@ -55,19 +55,15 @@ var App = React.createClass({
                         'div',
                         { className: "col-lg-4", key: i },
                         React.createElement(
-                            'h2',
+                            'h4',
                             null,
                             item.title
                         ),
+                        React.createElement('img', { className: "img-responsive", src: item.img }),
                         React.createElement(
                             'p',
                             null,
                             item.description
-                        ),
-                        React.createElement(
-                            'p',
-                            null,
-                            item.img
                         ),
                         React.createElement(
                             'p',

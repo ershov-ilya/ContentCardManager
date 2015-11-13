@@ -46,9 +46,9 @@ var App = React.createClass({
                     {
                         this.state.items.map(function(item, i) {
                             return <div className={"col-lg-4"} key={i}>
-                                          <h2>{item.title}</h2>
+                                          <h4>{item.title}</h4>
+                                          <img className={"img-responsive"} src={item.img} />
                                           <p>{item.description}</p>
-                                          <p>{item.img}</p>
                                           <p><a className={"btn btn-primary"} href="#" role="button">View details »</a></p>
                                       </div>
                         })
