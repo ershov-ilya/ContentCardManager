@@ -87,7 +87,7 @@ var App = React.createClass({
                     }
                 </ul>
       <div className={"jumbotron"}>
-        <p><a className={"btn btn-lg btn-success"} href="#" onClick={this.LoadMore}>Load More!</a></p>
+        <p><button className={"btn btn-lg btn-success"} onClick={this.LoadMore}>Load More!</button></p>
       </div>
              </div>
         );

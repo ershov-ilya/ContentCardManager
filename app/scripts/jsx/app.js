@@ -124,8 +124,8 @@ var App = React.createClass({
                     'p',
                     null,
                     React.createElement(
-                        'a',
-                        { className: "btn btn-lg btn-success", href: '#', onClick: this.LoadMore },
+                        'button',
+                        { className: "btn btn-lg btn-success", onClick: this.LoadMore },
                         'Load More!'
                     )
                 )
